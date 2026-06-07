@@ -1,8 +1,11 @@
 {
-    "buildCommand": "bun run build",
-    "outputDirectory": "dist/client",
-    "installCommand": "bun install",
-    "rewrites": [
-      { "source": "/(.*)", "destination": "/index.html" }
+    "functions": {
+      "dist/server/server.js": {
+        "runtime": "nodejs20.x"
+      }
+    },
+    "routes": [
+      { "src": "/assets/(.*)", "dest": "/dist/client/assets/$1" },
+      { "src": "/(.*)", "dest": "/dist/server/server.js" }
     ]
   }
